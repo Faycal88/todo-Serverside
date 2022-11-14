@@ -6,7 +6,7 @@ function addTodo(req, res) {
   const token = req.headers.authorization;
   const user = jwt.decode(token);
 
-  User.findOne({ id: user.id }).then((user) => {
+  User.findOne({ email: user.email }).then((user) => {
     if (user) {
       Todo.findByIdAndUpdate(
         user.list,
