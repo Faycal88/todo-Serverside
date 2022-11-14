@@ -11,12 +11,12 @@ require("dotenv").config();
 app.use(
   cors({
     origin: [
+      "https://master--lighthearted-baklava-d91377.netlify.app/",
       "http://localhost:3000",
       "127.0.0.1",
       "https://63719ae4d8fd82401abf50af--lighthearted-baklava-d91377.netlify.app/",
-      "https://master--lighthearted-baklava-d91377.netlify.app/",
     ],
-    credentials: true,
+    credentials: false,
   })
 );
 
