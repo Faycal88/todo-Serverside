@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 
-function verifyToken(req, res) {
+function verifyToken(req, res, next) {
   if (req.headers.authorization) {
     const token = req.headers.authorization;
     const user = jwt.decode(token);
@@ -11,9 +11,7 @@ function verifyToken(req, res) {
           access: "NOT Allowed",
         });
       } else {
-        res.status(202).json({
-          access: "Allowed",
-        });
+        next();
       }
     });
   } else {

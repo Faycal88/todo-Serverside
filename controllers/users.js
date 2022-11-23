@@ -4,6 +4,11 @@ const Todo = require("../models/todos");
 const User = require("../models/users");
 
 function login(req, res) {
+  if (!req.body.email) {
+    res.status(500).json({
+      message: "please provide a valid email address",
+    });
+  }
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
